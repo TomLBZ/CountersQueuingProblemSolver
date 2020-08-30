@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -27,12 +28,13 @@ namespace CountersQueuingProblemSolver
 
         private void timer1_Tick(object sender, EventArgs e)
         {
+            timeStamp++;
             timer1.Enabled = cs.Update();
             txtTime.Text = timeStamp.ToString();
             txtPplNum.Text = cs.getCount().ToString();
             txtQ.Text = cs.getQbyLevel();
+            txtPplAtLvl.Text = cs.getPplbyLevel();
             txtYet.Text = cs.getNumYet().ToString();
-            timeStamp++;
        }
 
         private int[] IntsFromStringArray(String[] array)
@@ -106,8 +108,16 @@ namespace CountersQueuingProblemSolver
             txtTime.Text = timeStamp.ToString();
             txtPplNum.Text = cs.getCount().ToString();
             txtQ.Text = cs.getQbyLevel();
+            txtPplAtLvl.Text = cs.getPplbyLevel();
             txtYet.Text = cs.getNumYet().ToString();
             timeStamp++;
+        }
+
+        private void btnPause_Click(object sender, EventArgs e)
+        {
+            if (timer1.Enabled) btnPause.Text = "Resume";
+            else btnPause.Text = "Pause";
+            timer1.Enabled = !timer1.Enabled;
         }
     }
 
@@ -126,7 +136,7 @@ namespace CountersQueuingProblemSolver
         {
             if (state)
             {
-                if (countDown > 0)
+                if (countDown > 1)
                 {
                     countDown--;
                 }
@@ -232,7 +242,7 @@ namespace CountersQueuingProblemSolver
         }
         public bool Update()
         {
-            if (countDown > 0)
+            if (countDown > 1)
             {
                 countDown--;
             }
@@ -277,6 +287,19 @@ namespace CountersQueuingProblemSolver
             {
                 rtn += "Lvl" + index.ToString() +"-[";
                 rtn += levels[i].getQueue().ToString();
+                rtn += "]; ";
+                index++;
+            }
+            return rtn;
+        }
+        public String getPplbyLevel()
+        {
+            int index = 1;
+            String rtn = "";
+            for (int i = 0; i < levels.Count; i++)
+            {
+                rtn += "Lvl" + index.ToString() + "-[";
+                rtn += levels[i].countPeople().ToString();
                 rtn += "]; ";
                 index++;
             }

@@ -54,10 +54,10 @@
             this.txtQ = new System.Windows.Forms.TextBox();
             this.lblStuYetCome = new System.Windows.Forms.Label();
             this.txtYet = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnPause = new System.Windows.Forms.Button();
             this.btnSimulateOnce = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.lblPplAtLvl = new System.Windows.Forms.Label();
+            this.txtPplAtLvl = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.textBox2 = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -237,9 +237,9 @@
             this.lblQ.AutoSize = true;
             this.lblQ.Location = new System.Drawing.Point(415, 276);
             this.lblQ.Name = "lblQ";
-            this.lblQ.Size = new System.Drawing.Size(75, 13);
+            this.lblQ.Size = new System.Drawing.Size(118, 13);
             this.lblQ.TabIndex = 20;
-            this.lblQ.Text = "Queue Length";
+            this.lblQ.Text = "Queue Length by Level";
             // 
             // txtQ
             // 
@@ -266,14 +266,15 @@
             this.txtYet.TabIndex = 21;
             this.txtYet.Text = "0";
             // 
-            // button1
+            // btnPause
             // 
-            this.button1.Location = new System.Drawing.Point(615, 380);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(173, 58);
-            this.button1.TabIndex = 23;
-            this.button1.Text = "Simulate";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnPause.Location = new System.Drawing.Point(615, 380);
+            this.btnPause.Name = "btnPause";
+            this.btnPause.Size = new System.Drawing.Size(173, 58);
+            this.btnPause.TabIndex = 23;
+            this.btnPause.Text = "Pause";
+            this.btnPause.UseVisualStyleBackColor = true;
+            this.btnPause.Click += new System.EventHandler(this.btnPause_Click);
             // 
             // btnSimulateOnce
             // 
@@ -285,24 +286,22 @@
             this.btnSimulateOnce.UseVisualStyleBackColor = true;
             this.btnSimulateOnce.Click += new System.EventHandler(this.btnSimulateOnce_Click);
             // 
-            // label1
+            // lblPplAtLvl
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(415, 302);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(75, 13);
-            this.label1.TabIndex = 26;
-            this.label1.Text = "Queue Length";
-            this.label1.Visible = false;
+            this.lblPplAtLvl.AutoSize = true;
+            this.lblPplAtLvl.Location = new System.Drawing.Point(415, 302);
+            this.lblPplAtLvl.Name = "lblPplAtLvl";
+            this.lblPplAtLvl.Size = new System.Drawing.Size(82, 13);
+            this.lblPplAtLvl.TabIndex = 26;
+            this.lblPplAtLvl.Text = "People At Level";
             // 
-            // textBox1
+            // txtPplAtLvl
             // 
-            this.textBox1.Location = new System.Drawing.Point(615, 302);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(173, 20);
-            this.textBox1.TabIndex = 25;
-            this.textBox1.Text = "0";
-            this.textBox1.Visible = false;
+            this.txtPplAtLvl.Location = new System.Drawing.Point(615, 302);
+            this.txtPplAtLvl.Name = "txtPplAtLvl";
+            this.txtPplAtLvl.Size = new System.Drawing.Size(173, 20);
+            this.txtPplAtLvl.TabIndex = 25;
+            this.txtPplAtLvl.Text = "0";
             // 
             // label2
             // 
@@ -330,10 +329,10 @@
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.lblPplAtLvl);
+            this.Controls.Add(this.txtPplAtLvl);
             this.Controls.Add(this.btnSimulateOnce);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnPause);
             this.Controls.Add(this.lblStuYetCome);
             this.Controls.Add(this.txtYet);
             this.Controls.Add(this.lblQ);
@@ -393,10 +392,10 @@
         private System.Windows.Forms.TextBox txtQ;
         private System.Windows.Forms.Label lblStuYetCome;
         private System.Windows.Forms.TextBox txtYet;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnPause;
         private System.Windows.Forms.Button btnSimulateOnce;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label lblPplAtLvl;
+        private System.Windows.Forms.TextBox txtPplAtLvl;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox textBox2;
     }
